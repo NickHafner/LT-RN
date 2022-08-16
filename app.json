@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lt-rn",
-    "slug": "lt-rn",
+    "name": "supabaseReactNative",
+    "slug": "supabaseReactNative",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
