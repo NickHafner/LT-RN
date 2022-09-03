@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "esbenp.prettier-vscode",
+    "msjsdiag.vscode-react-native",
+    "christian-kohler.npm-intellisense",
+  ]
+}
