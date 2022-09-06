@@ -1,65 +1,52 @@
 import { ThemeProvider } from '@shopify/restyle';
 import theme from './styles/theme';
 import darkTheme from './styles/darkTheme';
-import Box from './styles/Box';
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
-import { Button } from 'react-native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import LoginPage from './src/pages/Login';
+import LoginScreen from './src/screens/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './src/screens/Home';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 0 } },
 });
+const Stack = createNativeStackNavigator();
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [appIsReady, setAppIsReady] = useState(false);
   const [themeMode, setThemeMode] = useState('false');
+  const handleTheme = () => setThemeMode(themeMode === 'dark' ? 'light' : 'dark');
 
   useEffect(() => {
     async function prepare() {
       try {
-        const mode = await AsyncStorage.getItem('theme') || 'light';
-        setThemeMode(mode)
+        const mode = AsyncStorage.getItem('theme');
+        const data = await Promise.all([mode])
+        setThemeMode(data[0] || 'light');
       } catch (e) {
         console.warn(e);
       } finally {
-        setAppIsReady(true);
+        await SplashScreen.hideAsync();
       }
     }
-
     prepare();
   }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
-
-  if (!appIsReady) {
-    return null;
-  }
 
   return (
     <ThemeProvider theme={themeMode === 'dark' ? darkTheme : theme}>
       <QueryClientProvider client={queryClient}>
-        <Box
-          backgroundColor="mainBackground"
-          flex={1}
-          paddingVertical="xl"
-          justifyContent="center"
-          paddingHorizontal="xs"
-          onLayout={onLayoutRootView}>
-          <LoginPage />
-          <Button
-            onPress={() => setThemeMode(themeMode === 'dark' ? 'light' : 'dark')}
-            title="Theme"
-          />
-        </Box>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
+            <Stack.Screen name="Home">
+              {(props) => <HomeScreen {...props} handleThemeChange={handleTheme} />}
+            </Stack.Screen>
+          </Stack.Navigator>
+        </NavigationContainer>
       </QueryClientProvider>
     </ThemeProvider>
   );

@@ -5,5 +5,6 @@
     "esbenp.prettier-vscode",
     "msjsdiag.vscode-react-native",
     "christian-kohler.npm-intellisense",
+    "mgmcdermott.vscode-language-babe"
   ]
 }
