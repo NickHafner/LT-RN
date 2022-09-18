@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input } from 'react-native-elements';
-import Box from '../../styles/Box';
+import Box from '../styles/components/Box';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');

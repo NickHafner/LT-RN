@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@shopify/restyle';
-import theme from './styles/theme';
-import darkTheme from './styles/darkTheme';
+import theme from './src/styles/theme';
+import darkTheme from './src/styles/darkTheme';
 import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

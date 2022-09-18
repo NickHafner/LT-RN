@@ -1,6 +1,28 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "allowJs": true,
+    "paths": {
+      "@utils": ["./src/utils"],
+      "@styles": ["./src/styles"],
+      "@styles/*": ["./src/styles/*"],
+      "@navigation": ["./src/navigation"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@screens": ["./src/screens"],
+      "@helpers": ["./src/helpers"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@hooks": ["./src/hooks"]
+    }
+  },
+  "exclude": [
+    "ios",
+    "patches/reanimated",
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }
