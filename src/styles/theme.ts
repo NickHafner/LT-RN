@@ -1,6 +1,6 @@
 // In theme
 import palette from './palette';
-import { createTheme } from '@shopify/restyle';
+import { createTheme, spacing } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
@@ -67,5 +67,6 @@ const theme = createTheme({
   },
 });
 
+export type Spacing = typeof theme.spacing;
 export type Theme = typeof theme;
 export default theme;

@@ -1,6 +1,6 @@
 import React from "react"
 import { Input as NativeInput } from 'react-native-elements';
-import { useTheme } from '@mlt/styles';
+import useTheme from '../../useTheme';
 
 const Input: React.FC<any> = (props) => {
     const theme = useTheme();
