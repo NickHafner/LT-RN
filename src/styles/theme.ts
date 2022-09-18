@@ -5,6 +5,7 @@ import { createTheme } from '@shopify/restyle';
 const theme = createTheme({
   colors: {
     body: palette.grey100,
+    placeHolder: palette.white70,
     backgroundRegular: palette.white90,
     backgroundSubdued: palette.blue20,
     mainBackground: palette.white90,
