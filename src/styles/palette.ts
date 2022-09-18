@@ -87,6 +87,7 @@ export const palette = {
   grey90: 'rgba(27, 29, 31, 0.88)',
   grey100: '#000',
 
+  white0: '#000',
   white10: '#1B1C1E',
   white20: 'rgba(245, 248, 255, 0.12)',
   white30: 'rgba(245, 248, 255, 0.16)',

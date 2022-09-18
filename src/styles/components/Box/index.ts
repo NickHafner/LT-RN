@@ -1,6 +1,7 @@
 import { createBox } from "@shopify/restyle";
-import { Theme } from "../theme";
+import { Theme } from "../../theme";
 
 const Box = createBox<Theme>();
 
+export type Box = typeof Box
 export default Box;

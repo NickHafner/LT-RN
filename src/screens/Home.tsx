@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '../styles/components/Box';
+import { Box } from '@mlt/styles';
 import { Button } from 'react-native';
 
 const HomeScreen: React.FC<{ handleThemeChange: () => void }> = ({ handleThemeChange }) => {

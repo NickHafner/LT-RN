@@ -19,7 +19,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [themeMode, setThemeMode] = useState('false');
-  const handleTheme = () => setThemeMode(themeMode === 'dark' ? 'light' : 'dark');
+  const handleTheme = () => setThemeMode(themeMode !== 'dark' ? 'light' : 'dark');
 
   useEffect(() => {
     async function prepare() {
@@ -37,7 +37,8 @@ export default function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={themeMode === 'dark' ? darkTheme : theme}>
+    // <ThemeProvider theme={themeMode === 'dark' ? darkTheme : theme}>
+    <ThemeProvider theme={darkTheme}>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login">

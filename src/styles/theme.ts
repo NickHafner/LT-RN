@@ -4,27 +4,27 @@ import { createTheme } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
-    body: palette.black,
-    backgroundRegular: palette.white,
-    backgroundSubdued: palette.skyLighter,
-    mainBackground: palette.white,
-    mainForeground: palette.white,
+    body: palette.grey100,
+    backgroundRegular: palette.white90,
+    backgroundSubdued: palette.blue20,
+    mainBackground: palette.white90,
+    mainForeground: palette.white90,
 
-    foregroundRegular: palette.black,
-    foregroundOff: palette.inkLight,
-    foregroundSubdued: palette.inkLightest,
-    foregroundContrasting: palette.white,
-    foregroundSuccess: palette.greenDark,
+    foregroundRegular: palette.grey90,
+    foregroundOff: palette.grey70,
+    foregroundSubdued: palette.grey40,
+    foregroundContrasting: palette.white90,
+    foregroundSuccess: palette.green80,
 
-    highlightPrimary: palette.indigo,
-    highlightPrimaryDisabled: palette.indigoLight,
+    highlightPrimary: palette.yellow70,
+    highlightPrimaryDisabled: palette.grey70,
 
-    buttonBackgroundPlain: palette.sky,
-    errorPrimary: palette.red,
+    buttonBackgroundPlain: palette.blue70,
+    errorPrimary: palette.red90,
 
-    secondaryCardBackground: palette.grey,
-    secondaryCardText: palette.white,
-    iconBackgroundDark: palette.blueDarker,
+    secondaryCardBackground: palette.grey20,
+    secondaryCardText: palette.white90,
+    iconBackgroundDark: palette.blue90,
   },
   spacing: {
     none: 0,

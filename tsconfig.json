@@ -3,26 +3,23 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
-      "@utils": ["./src/utils"],
-      "@styles": ["./src/styles"],
-      "@styles/*": ["./src/styles/*"],
-      "@navigation": ["./src/navigation"],
-      "@navigation/*": ["./src/navigation/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@screens/*": ["./src/screens/*"],
-      "@screens": ["./src/screens"],
-      "@helpers": ["./src/helpers"],
-      "@helpers/*": ["./src/helpers/*"],
-      "@hooks": ["./src/hooks"]
-    }
+      "@/*": ["./src/*"],
+      "@mlt/utils": ["./src/utils"],
+      "@mlt/styles": ["./src/styles"],
+      "@mlt/styles/*": ["./src/styles/*"],
+      "@mlt/navigation": ["./src/navigation"],
+      "@mlt/navigation/*": ["./src/navigation/*"],
+      "@mlt/lib/*": ["./src/lib/*"],
+      "@mlt/screens/*": ["./src/screens/*"],
+      "@mlt/screens": ["./src/screens"],
+      "@mlt/helpers": ["./src/helpers"],
+      "@mlt/helpers/*": ["./src/helpers/*"],
+      "@mlt/hooks": ["./src/hooks"]
+    },
+    "resolveJsonModule": true
   },
-  "exclude": [
-    "ios",
-    "patches/reanimated",
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
