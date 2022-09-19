@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Button, Input } from '@mlt/styles';
+import { Box, Button, Input, useTheme } from '@mlt/styles';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const theme = useTheme();
 
   return (
     <Box
@@ -15,16 +16,16 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       paddingHorizontal="xs">
       <Input
         label="Email"
-        leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+        leftIcon={{ color: theme.colors.iconColor, type: 'font-awesome', name: 'envelope' }}
         onChangeText={(text: string) => setEmail(text)}
         value={email}
-        placeholder="email@address.com"
+        placeholder="Email@address.com"
         autoCapitalize={'none'}
         autoCompleteType={undefined}
       />
       <Input
         label="Password"
-        leftIcon={{ type: 'font-awesome', name: 'lock' }}
+        leftIcon={{ color: theme.colors.iconColor, type: 'font-awesome', name: 'lock' }}
         onChangeText={(text: string) => setPassword(text)}
         value={password}
         secureTextEntry={true}
