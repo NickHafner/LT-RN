@@ -10,7 +10,7 @@ const Input: React.FC<any> = (props) => {
           color: theme.colors.body,
         }}
         labelStyle={{
-          color: theme.colors.body,
+          color: theme.colors.placeHolder,
         }}
         placeholderTextColor={theme.colors.placeHolder}
         {...props}

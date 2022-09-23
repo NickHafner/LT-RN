@@ -1,6 +1,5 @@
 import { ThemeProvider } from '@shopify/restyle';
-import theme from './src/styles/theme';
-import darkTheme from './src/styles/darkTheme';
+import { Theme, DarkTheme } from '@mlt/styles';
 import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -37,8 +36,7 @@ export default function App() {
   }, []);
 
   return (
-    // <ThemeProvider theme={themeMode === 'dark' ? darkTheme : theme}>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={themeMode !== 'dark' ? DarkTheme : Theme}>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login">

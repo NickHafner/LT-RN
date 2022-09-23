@@ -9,7 +9,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   return (
     <Box
-      backgroundColor="mainBackground"
+      backgroundColor="background"
       flex={1}
       paddingVertical="xl"
       justifyContent="center"

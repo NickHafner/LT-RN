@@ -5,14 +5,11 @@ const darkTheme: Theme = {
   ...theme,
   colors: {
     ...theme.colors,
-    mainBackground: palette.white10,
-    mainForeground: palette.white40,
-    body: palette.white90,
-    backgroundRegular: palette.grey90,
-    backgroundSubdued: palette.blue80,
-
-    secondaryCardBackground: palette.grey30,
-    secondaryCardText: palette.white10,
+    body: palette.blueGrey10,
+    placeHolder: palette.blueGrey30,
+    background: palette.blueGrey80,
+    backgroundSubdued: palette.blue60,
+    iconColor: palette.blueGrey30,
   },
 };
 

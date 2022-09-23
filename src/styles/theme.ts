@@ -1,32 +1,24 @@
 // In theme
 import palette from './palette';
-import { createTheme, spacing } from '@shopify/restyle';
+import { createTheme } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
-    body: palette.grey100,
-    iconColor: palette.blue20,
-    placeHolder: palette.white70,
-    backgroundRegular: palette.white90,
-    backgroundSubdued: palette.blue20,
-    mainBackground: palette.white90,
-    mainForeground: palette.white90,
-
-    foregroundRegular: palette.grey90,
-    foregroundOff: palette.grey70,
-    foregroundSubdued: palette.grey40,
-    foregroundContrasting: palette.white90,
-    foregroundSuccess: palette.green80,
+    body: palette.blueGrey100,
+    placeHolder: palette.blueGrey90,
+    background: palette.blueGrey20,
+    backgroundSubdued: palette.blue10,
 
     highlightPrimary: palette.yellow70,
-    highlightPrimaryDisabled: palette.grey70,
-
-    buttonBackgroundPlain: palette.blue70,
-    errorPrimary: palette.red90,
+    buttonBackground: palette.blue70,
+    errorPrimary: palette.red70,
+    btnPrimary: palette.green60,
+    disabled: palette.grey70,
 
     secondaryCardBackground: palette.grey20,
     secondaryCardText: palette.white90,
-    iconBackgroundDark: palette.blue90,
+    iconColor: palette.blueGrey90,
+    iconBackgroundDark: palette.grey10,
   },
   spacing: {
     none: 0,
@@ -56,11 +48,6 @@ const theme = createTheme({
       color: 'body',
     },
     body: {
-      fontSize: 16,
-      lineHeight: 24,
-      color: 'body',
-    },
-    defaults: {
       fontSize: 16,
       lineHeight: 24,
       color: 'body',

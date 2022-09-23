@@ -5,7 +5,7 @@ import { Button } from 'react-native';
 const HomeScreen: React.FC<{ handleThemeChange: () => void }> = ({ handleThemeChange }) => {
   return (
     <Box
-      backgroundColor="mainBackground"
+      backgroundColor="background"
       flex={1}
       paddingVertical="xl"
       justifyContent="center"
