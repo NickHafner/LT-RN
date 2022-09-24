@@ -12,13 +12,12 @@ const theme = createTheme({
     highlightPrimary: palette.yellow70,
     buttonBackground: palette.blue70,
     errorPrimary: palette.red70,
-    btnPrimary: palette.green60,
+    btnPrimary: palette.brandPrimary,
     disabled: palette.grey70,
 
-    secondaryCardBackground: palette.grey20,
+    cardBackground: palette.white100,
     secondaryCardText: palette.white90,
-    iconColor: palette.blueGrey90,
-    iconBackgroundDark: palette.grey10,
+    iconColor: palette.white90,
   },
   spacing: {
     none: 0,

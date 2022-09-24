@@ -7,9 +7,10 @@ const darkTheme: Theme = {
     ...theme.colors,
     body: palette.blueGrey10,
     placeHolder: palette.blueGrey30,
-    background: palette.blueGrey80,
-    backgroundSubdued: palette.blue60,
-    iconColor: palette.blueGrey30,
+    background: '#282b30',
+    backgroundSubdued: '#1e2124',
+    iconColor: palette.brandPrimary,
+    btnPrimary: palette.grey20,
   },
 };
 

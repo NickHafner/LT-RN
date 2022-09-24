@@ -109,6 +109,8 @@ export const palette = {
   blueGrey80: '#5F6670',
   blueGrey90: '#3C4047',
   blueGrey100: '#242529',
+
+  brandPrimary: '#7289da',
 };
 
 export type Palette = typeof palette;
