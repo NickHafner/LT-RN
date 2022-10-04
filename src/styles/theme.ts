@@ -6,14 +6,17 @@ const theme = createTheme({
   colors: {
     body: palette.blueGrey100,
     placeHolder: palette.blueGrey90,
-    background: palette.blueGrey20,
-    backgroundSubdued: palette.blue10  ,
+    background: palette.blueGrey70,
+    paper: palette.blueGrey70,
+    backgroundSubdued: palette.blue10,
 
     highlightPrimary: palette.yellow70,
     buttonBackground: palette.blue70,
     errorPrimary: palette.red70,
     btnPrimary: palette.brandPrimary,
     disabled: palette.grey70,
+    inputBackground: palette.blueGrey100,
+    border: '#30363d',
 
     cardBackground: palette.white100,
     secondaryCardText: palette.white90,

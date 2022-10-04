@@ -8,9 +8,12 @@ const darkTheme: Theme = {
     body: palette.blueGrey10,
     placeHolder: palette.blueGrey30,
     background: '#282b30',
+    paper: palette.blueGrey90,
     backgroundSubdued: '#1e2124',
     iconColor: palette.brandPrimary,
-    btnPrimary: palette.grey20,
+    inputBackground: palette.blueGrey100,
+    btnPrimary: palette.brandPrimary,
+    border: '#30363d',
   },
 };
 

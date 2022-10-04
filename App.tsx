@@ -36,7 +36,7 @@ export default function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={themeMode !== 'dark' ? DarkTheme : Theme}>
+    <ThemeProvider theme={DarkTheme}>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login">

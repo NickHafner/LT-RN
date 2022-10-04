@@ -14,30 +14,35 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
-      <Input
-        label="Email"
-        leftIcon={{ color: theme.colors.iconColor, type: 'font-awesome', name: 'envelope' }}
-        onChangeText={(text: string) => setEmail(text)}
-        value={email}
-        placeholder="Email@address.com"
-        autoCapitalize={'none'}
-        autoCompleteType={undefined}
-      />
-      <Input
-        label="Password"
-        leftIcon={{ color: theme.colors.iconColor, type: 'font-awesome', name: 'lock' }}
-        onChangeText={(text: string) => setPassword(text)}
-        value={password}
-        secureTextEntry={true}
-        placeholder="Password"
-        autoCapitalize={'none'}
-        autoCompleteType={undefined}
-      />
-      <Button
-        title="Sign in"
-        disabled={loading}
-        onPress={() => navigation.navigate({ name: 'Home' })}
-      />
+      <Box
+        borderRadius={10}
+        paddingVertical="s"
+        backgroundColor="paper"
+        borderColor="border"
+        borderWidth={2}>
+        <Input
+          label="Email"
+          onChangeText={(text: string) => setEmail(text)}
+          value={email}
+          autoCapitalize={'none'}
+          autoCompleteType={undefined}
+        />
+        <Input
+          label="Password"
+          onChangeText={(text: string) => setPassword(text)}
+          value={password}
+          secureTextEntry={true}
+          autoCapitalize={'none'}
+          autoCompleteType={undefined}
+        />
+        <Box paddingHorizontal="xs">
+          <Button
+            title="Sign in"
+            disabled={loading}
+            onPress={() => navigation.navigate({ name: 'Home' })}
+          />
+        </Box>
+      </Box>
     </Box>
   );
 };
