@@ -7,7 +7,7 @@ const theme = createTheme({
     body: palette.blueGrey100,
     placeHolder: palette.blueGrey90,
     background: palette.blueGrey20,
-    backgroundSubdued: palette.blue10,
+    backgroundSubdued: palette.blue10  ,
 
     highlightPrimary: palette.yellow70,
     buttonBackground: palette.blue70,
