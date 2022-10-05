@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, useTheme } from '@mlt/styles';
+import { Box, Button, Input, useTheme, Text } from '@mlt/styles';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -14,6 +14,9 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
+      <Box marginBottom="s" padding="s" alignItems="center">
+        <Text fontWeight='700' fontSize={20}>Minimalist Lifts</Text>
+      </Box>
       <Box
         borderRadius={10}
         paddingVertical="s"

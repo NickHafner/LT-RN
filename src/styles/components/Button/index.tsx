@@ -9,8 +9,8 @@ const Button: React.FC<ButtonProps> = (props) => {
   return (
     <NativeButton
       buttonStyle={{
-        borderColor: "border",
-        backgroundColor: theme.colors.btnPrimary,
+        borderColor: 'border',
+        backgroundColor: theme.colors.brandPrimary,
       }}
       titleStyle={{
         color: theme.colors.body,

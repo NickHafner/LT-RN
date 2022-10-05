@@ -16,6 +16,8 @@ const theme = createTheme({
     btnPrimary: palette.brandPrimary,
     disabled: palette.grey70,
     inputBackground: palette.blueGrey100,
+    brandPrimary: palette.brandPrimary,
+    borderFocus: palette.brandPrimary,
     border: '#30363d',
 
     cardBackground: palette.white100,

@@ -41,7 +41,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
-            <Stack.Screen name="Home">
+            <Stack.Screen name="Home" options={{ headerShown: false }}>
               {(props) => <HomeScreen {...props} handleThemeChange={handleTheme} />}
             </Stack.Screen>
           </Stack.Navigator>

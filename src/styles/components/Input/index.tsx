@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Input as NativeInput } from 'react-native-elements';
 import useTheme from '../../useTheme';
 
 const Input: React.FC<any> = (props) => {
     const theme = useTheme();
+    const [borderColor, setBorderColor] = useState(theme.colors.border)
     return (
       <NativeInput
         inputStyle={{
@@ -21,8 +22,11 @@ const Input: React.FC<any> = (props) => {
           borderLeftWidth: 1,
           marginTop: 6,
           borderRadius: 6,
-          borderColor: '#30363d',
+          borderColor: borderColor,
         }}
+        containerStyle={{paddingHorizontal: theme.spacing.xs}}
+        onFocus={() => setBorderColor(theme.colors.borderFocus)}
+        onBlur={() => setBorderColor(theme.colors.border)}
         {...props}
       />
     );
