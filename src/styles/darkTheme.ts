@@ -9,7 +9,7 @@ const darkTheme: Theme = {
     placeHolder: palette.blueGrey30,
     background: '#0d1117',
     paper: '#282b30',
-    backgroundSubdued: '#1e2124',
+    backgroundSubdued: '#30363d',
     iconColor: palette.brandPrimary,
     inputBackground: '#0d1117',
     brandPrimary: palette.brandPrimary,

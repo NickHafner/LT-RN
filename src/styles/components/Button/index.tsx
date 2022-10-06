@@ -10,6 +10,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     <NativeButton
       buttonStyle={{
         borderColor: 'border',
+        borderRadius: 256,
         backgroundColor: theme.colors.brandPrimary,
       }}
       titleStyle={{
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         fontSize: theme.textVariants.body.fontSize,
       }}
       {...props}
+      loading={props.loading}
     />
   );
 };

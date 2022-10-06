@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, useTheme, Text } from '@mlt/styles';
+import { Box, Button, Input, Text } from '@mlt/styles';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const theme = useTheme();
 
   return (
     <Box
@@ -15,14 +14,24 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       justifyContent="center"
       paddingHorizontal="xs">
       <Box marginBottom="s" padding="s" alignItems="center">
-        <Text fontWeight='700' fontSize={20}>Minimalist Lifts</Text>
+        <Text fontWeight="700" fontSize={20}>
+          Minimalist Lifts
+        </Text>
       </Box>
       <Box
         borderRadius={10}
         paddingVertical="s"
         backgroundColor="paper"
         borderColor="border"
-        borderWidth={2}>
+        borderWidth={2}
+        shadowColor="backgroundSubdued"
+        shadowOffset={{
+          width: 0,
+          height: 2,
+        }}
+        shadowOpacity={0.23}
+        shadowRadius={2.23}
+        elevation={3}>
         <Input
           label="Email"
           onChangeText={(text: string) => setEmail(text)}
@@ -41,8 +50,11 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         <Box paddingHorizontal="xs">
           <Button
             title="Sign in"
-            disabled={loading}
-            onPress={() => navigation.navigate({ name: 'Home' })}
+            loading={loading}
+            onPress={() => {
+              setLoading(true)
+              setTimeout(() => setLoading(false), 3000)
+            }}
           />
         </Box>
       </Box>
