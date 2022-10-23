@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box } from '@mlt/styles';
+import { Box, Text } from '@/styles';
 import { Button } from 'react-native';
 
-const HomeScreen: React.FC<{ handleThemeChange: () => void }> = ({ handleThemeChange }) => {
+const HomeScreen: React.FC<{  }> = ({  }) => {
   return (
     <Box
       backgroundColor="background"
@@ -10,7 +10,7 @@ const HomeScreen: React.FC<{ handleThemeChange: () => void }> = ({ handleThemeCh
       paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
-      <Button onPress={handleThemeChange} title="Theme" />
+        <Text>test</Text>
     </Box>
   );
 };

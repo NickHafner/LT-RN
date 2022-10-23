@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Text } from '@mlt/styles';
+import { Box, Button, Input, Text } from '@/styles';
+import { logger } from '@/debugging/logger';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -41,7 +42,9 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         />
         <Input
           label="Password"
-          onChangeText={(text: string) => setPassword(text)}
+          onChangeText={(text: string) => {
+            setPassword(text);
+          }}
           value={password}
           secureTextEntry={true}
           autoCapitalize={'none'}
@@ -52,8 +55,8 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
             title="Sign in"
             loading={loading}
             onPress={() => {
-              setLoading(true)
-              setTimeout(() => setLoading(false), 3000)
+              setLoading(true);
+              setTimeout(() => setLoading(false), 3000);
             }}
           />
         </Box>

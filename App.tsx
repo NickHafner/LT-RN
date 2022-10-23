@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@shopify/restyle';
-import { Theme, DarkTheme } from '@mlt/styles';
+import { Theme, DarkTheme } from '@/styles';
 import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -41,9 +41,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
-            <Stack.Screen name="Home" options={{ headerShown: false }}>
-              {(props) => <HomeScreen {...props} handleThemeChange={handleTheme} />}
-            </Stack.Screen>
+            <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>
