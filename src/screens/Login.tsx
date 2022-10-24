@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, Text } from '@/styles';
+import { supabase } from '@/lib/supabase';
+import { Alert } from 'react-native';
 import { logger } from '@/debugging/logger';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('nickrhafner@gmail.com');
+  const [password, setPassword] = useState('!Wiand324');
   const [loading, setLoading] = useState(false);
+  
+  async function signInWithEmail(email: string, password: string) {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
 
+    if (error) Alert.alert(error.message);
+    setLoading(false);
+  }
+  
   return (
     <Box
       backgroundColor="background"
@@ -56,7 +68,10 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
             loading={loading}
             onPress={() => {
               setLoading(true);
-              setTimeout(() => setLoading(false), 3000);
+              setTimeout(() => {
+                setLoading(false);
+                signInWithEmail(email, password);
+              }, 300);
             }}
           />
         </Box>

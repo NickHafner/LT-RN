@@ -6,4 +6,5 @@ declare module '@env' {
   export const IS_DEV: '0' | '1';
   export const LOG_LEVEL: 'debug' | 'info' | 'warn' | 'error';
   export const LOG_DEBUG: string;
+  export const HOSTNAME: string;
 }

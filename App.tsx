@@ -8,6 +8,9 @@ import LoginScreen from './src/screens/Login';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/Home';
+import monitorNetwork from '@/debugging/network';
+import { IS_DEV } from '@env';
+import { AppRegistry } from 'react-native';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 0 } },
@@ -35,6 +38,8 @@ export default function App() {
     prepare();
   }, []);
 
+  if (IS_DEV) monitorNetwork(true, true);
+
   return (
     <ThemeProvider theme={DarkTheme}>
       <QueryClientProvider client={queryClient}>
@@ -48,3 +53,5 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
+AppRegistry.registerComponent('MLT', () => App);
