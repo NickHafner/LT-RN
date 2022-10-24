@@ -11,6 +11,9 @@ import HomeScreen from './src/screens/Home';
 import monitorNetwork from '@/debugging/network';
 import { IS_DEV } from '@env';
 import { AppRegistry } from 'react-native';
+import { supabase } from '@/lib/supabase';
+import { SupaSessionContext } from '@/lib/supaSession';
+import { Session } from '@supabase/supabase-js';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 0 } },
@@ -21,8 +24,19 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [themeMode, setThemeMode] = useState('false');
+  const [session, setSession] = useState<Session | null>(null);
   const handleTheme = () => setThemeMode(themeMode !== 'dark' ? 'light' : 'dark');
 
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
+  
   useEffect(() => {
     async function prepare() {
       try {
@@ -43,12 +57,14 @@ export default function App() {
   return (
     <ThemeProvider theme={DarkTheme}>
       <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
-            <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <SupaSessionContext.Provider value={session}>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Login">
+              <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
+              <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SupaSessionContext.Provider>
       </QueryClientProvider>
     </ThemeProvider>
   );

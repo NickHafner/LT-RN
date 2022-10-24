@@ -3,12 +3,13 @@ import { Box, Button, Input, Text } from '@/styles';
 import { supabase } from '@/lib/supabase';
 import { Alert } from 'react-native';
 import { logger } from '@/debugging/logger';
+    import { NavigationProp } from '@react-navigation/native';
 
-const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navigation }) => {
   const [email, setEmail] = useState('nickrhafner@gmail.com');
-  const [password, setPassword] = useState('!Wiand324');
+  const [password, setPassword] = useState('$@ndb0x!');
   const [loading, setLoading] = useState(false);
-  
+
   async function signInWithEmail(email: string, password: string) {
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
@@ -17,8 +18,10 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
     if (error) Alert.alert(error.message);
     setLoading(false);
+
+    navigation.navigate("Home");
   }
-  
+
   return (
     <Box
       backgroundColor="background"

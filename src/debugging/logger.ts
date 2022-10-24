@@ -3,8 +3,6 @@
 import { IS_TEST, IS_DEV, LOG_LEVEL, LOG_DEBUG } from '@env';
 import format from 'date-fns/format';
 
-
-
 export enum LogLevel {
   Debug = 'debug',
   Info = 'info',
@@ -83,7 +81,7 @@ export class Logger {
   protected debugContextRegexes: RegExp[] = [];
 
   constructor({
-    enabled = (IS_TEST === '1'),
+    enabled = IS_TEST === '1',
     level = LOG_LEVEL as LogLevel,
     debug = LOG_DEBUG || '',
   }: {
@@ -114,10 +112,7 @@ export class Logger {
     if (error instanceof MLTError) {
       this.transport(LogLevel.Error, error);
     } else {
-      this.transport(
-        LogLevel.Error,
-        new MLTError(`logger.error was not provided a MLTError`)
-      );
+      this.transport(LogLevel.Error, new MLTError(`logger.error was not provided a MLTError`));
     }
   }
 
