@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { Box, Text } from '@/styles';
-import { Button } from 'react-native';
-import { Session } from '@supabase/supabase-js';
 import { logger } from '@/debugging/logger';
 import { SupaSessionContext } from '@/lib/supaSession';
 

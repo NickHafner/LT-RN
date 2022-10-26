@@ -111,6 +111,17 @@ export const palette = {
   blueGrey100: '#242529',
 
   brandPrimary: '#7289da',
+
+  telegram50: '#E3F2F9',
+  telegram100: '#C5E4F3',
+  telegram200: '#A2D4EC',
+  telegram300: '#7AC1E4',
+  telegram400: '#47A9DA',
+  telegram500: '#0088CC',
+  telegram600: '#007AB8',
+  telegram700: '#006BA1',
+  telegram800: '#005885',
+  telegram900: '#003F5E',
 };
 
 export type Palette = typeof palette;

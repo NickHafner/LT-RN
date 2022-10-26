@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Input, Text } from '@/styles';
 import { supabase } from '@/lib/supabase';
 import { Alert } from 'react-native';
-import { logger } from '@/debugging/logger';
-    import { NavigationProp } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navigation }) => {
   const [email, setEmail] = useState('nickrhafner@gmail.com');
@@ -17,9 +16,8 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
     });
 
     if (error) Alert.alert(error.message);
-    setLoading(false);
-
-    navigation.navigate("Home");
+    navigation.navigate('Home')
+    setTimeout(() => setLoading(false), 250); // timeout to ensure loading spinner does not disappear until after nav animation
   }
 
   return (
@@ -72,9 +70,8 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
             onPress={() => {
               setLoading(true);
               setTimeout(() => {
-                setLoading(false);
                 signInWithEmail(email, password);
-              }, 300);
+              }, 100);
             }}
           />
         </Box>

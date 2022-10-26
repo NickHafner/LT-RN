@@ -118,7 +118,6 @@ export default function xmonitorNetwork(showNetworkRequests: any, showNetworkRes
               });
               logger.debug(' }');
             } catch (e) {
-              logger.debug('Error printing response obj:' + e);
               logger.debug(response);
             }
           }

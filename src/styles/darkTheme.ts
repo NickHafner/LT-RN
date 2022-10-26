@@ -10,10 +10,11 @@ const darkTheme: Theme = {
     background: '#0d1117',
     paper: '#282b30',
     backgroundSubdued: '#30363d',
-    iconColor: palette.brandPrimary,
+    iconColor: palette.telegram300,
     inputBackground: '#0d1117',
-    brandPrimary: palette.brandPrimary,
+    brandPrimary: palette.telegram300,
     border: '#30363d',
+    btnPrimary: palette.telegram300,
   },
 };
 
