@@ -4,7 +4,7 @@ import useTheme from '../../useTheme';
 
 const Input: React.FC<any> = (props) => {
     const theme = useTheme();
-    const [borderColor, setBorderColor] = useState(theme.colors.border)
+    const [borderColor, setBorderColor] = useState(theme.colors.inputBorder);
     return (
       <NativeInput
         inputStyle={{
@@ -24,9 +24,9 @@ const Input: React.FC<any> = (props) => {
           borderRadius: 6,
           borderColor: borderColor,
         }}
-        containerStyle={{paddingHorizontal: theme.spacing.xs}}
-        onFocus={() => setBorderColor(theme.colors.borderFocus)}
-        onBlur={() => setBorderColor(theme.colors.border)}
+        containerStyle={{ paddingHorizontal: theme.spacing.xs }}
+        onFocus={() => setBorderColor(theme.colors.focus)}
+        onBlur={() => setBorderColor(theme.colors.inputBorder)}
         {...props}
       />
     );

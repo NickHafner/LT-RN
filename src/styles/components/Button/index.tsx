@@ -166,8 +166,8 @@ export const Button: CommonBtn<ButtonProps> = ({
             ? {
                 opacity: 0.3,
                 backgroundColor:
-                  type !== 'solid' ? theme.colors.borderFocus : theme.colors.brandPrimary,
-                borderColor: theme.colors.borderFocus,
+                  type !== 'solid' ? theme.colors.focus : theme.colors.brandPrimary,
+                borderColor: theme.colors.focus,
                 borderWidth: 1,
                 borderRadius,
               }

@@ -16,8 +16,9 @@ const theme = createTheme({
     btnPrimary: palette.telegram700,
     disabled: palette.grey70,
     inputBackground: palette.blueGrey100,
+    inputBorder: palette.blueGrey80,
     brandPrimary: palette.telegram700,
-    borderFocus: palette.telegram400,
+    focus: palette.telegram400,
 
     cardBackground: palette.white100,
     secondaryCardText: palette.white90,

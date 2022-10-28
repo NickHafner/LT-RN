@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Box, Input, Button, Text } from '@/styles';
+import React, { useContext, useState } from 'react';
+import { Box, Input, Button, Text, ThemeModeContext } from '@/styles';
 import { supabase } from '@/lib/supabase';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
@@ -8,7 +8,7 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
   const [email, setEmail] = useState('nickrhafner@gmail.com');
   const [password, setPassword] = useState('$@ndb0x!');
   const [loading, setLoading] = useState(false);
-
+  const { theme, setTheme } = useContext(ThemeModeContext);
   async function signInWithEmail(email: string, password: string) {
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
@@ -76,6 +76,17 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
                 setLoading(false);
                 // signInWithEmail(email, password);
               }, 2000);
+            }}
+          />
+        </Box>
+        <Box paddingHorizontal="xs">
+          <Button
+            title="Sign in"
+            loading={loading}
+            type="outline"
+            radius="xl"
+            onPress={() => {
+                setTheme(theme === 'light' ? 'dark' : 'light');
             }}
           />
         </Box>

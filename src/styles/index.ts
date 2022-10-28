@@ -6,3 +6,9 @@ export { default as useTheme } from './useTheme';
 export { Theme as ThemeType } from './theme';
 export { default as Theme } from './theme';
 export { default as DarkTheme } from './darkTheme';
+import { createContext } from 'react';
+
+export const ThemeModeContext = createContext<{ theme: string; setTheme: (mode: string) => void }>({
+  theme: 'dark',
+  setTheme: (mode: string) => {},
+});

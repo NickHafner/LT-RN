@@ -4,6 +4,7 @@ declare module '@env' {
   export const ENV: 'development' | 'production';
   export const IS_TEST: '0' | '1';
   export const IS_DEV: '0' | '1';
+  export const SHOW_NETWORK: '0' | '1';
   export const LOG_LEVEL: 'debug' | 'info' | 'warn' | 'error';
   export const LOG_DEBUG: string;
   export const HOSTNAME: string;
