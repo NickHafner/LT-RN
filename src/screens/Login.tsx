@@ -1,31 +1,34 @@
-import React, { useContext, useState } from 'react';
-import { Box, Input, Button, Text, ThemeModeContext } from '@/styles';
+import React, { useCallback, useState } from 'react';
+import { Box, Input, Button, Text } from '@/styles';
 import { supabase } from '@/lib/supabase';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
-const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navigation }) => {
-  const [email, setEmail] = useState('nickrhafner@gmail.com');
-  const [password, setPassword] = useState('$@ndb0x!');
-  const [loading, setLoading] = useState(false);
-  const { theme, setTheme } = useContext(ThemeModeContext);
-  async function signInWithEmail(email: string, password: string) {
+  const signInWithEmail = async function (email: string, password: string): Promise<boolean> {
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
 
-    if (error) Alert.alert(error.message);
-    navigation.navigate('Home')
-    setTimeout(() => setLoading(false), 250); // timeout to ensure loading spinner does not disappear until after nav animation
+    return !!error;
   }
-
+const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navigation }) => {
+  const [email, setEmail] = useState('nickrhafner@gmail.com');
+  const [password, setPassword] = useState('$@ndb0x!');
+  const [loading, setLoading] = useState(false);
+  const handleLogin = useCallback(() => {
+    setLoading(true);
+    // const success = signInWithEmail(email, password);
+    // if (success) {
+      setTimeout(() => setLoading(false), 750); // timeout to ensure loading spinner does not disappear until after nav animation
+    // navigation.navigate('Home');
+    // }
+  }, []);
   return (
     <Box
       backgroundColor="background"
       flex={1}
       minHeight="100%"
-      // paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
       <Box paddingBottom="s" alignItems="center">
@@ -70,24 +73,7 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
             loading={loading}
             type="outline"
             radius="xl"
-            onPress={() => {
-              setLoading(true);
-              setTimeout(() => {
-                setLoading(false);
-                // signInWithEmail(email, password);
-              }, 2000);
-            }}
-          />
-        </Box>
-        <Box paddingHorizontal="xs">
-          <Button
-            title="Sign in"
-            loading={loading}
-            type="outline"
-            radius="xl"
-            onPress={() => {
-                setTheme(theme === 'light' ? 'dark' : 'light');
-            }}
+            onPress={handleLogin}
           />
         </Box>
       </Box>

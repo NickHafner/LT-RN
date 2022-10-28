@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Box, Text } from '@/styles';
+import { Box, Button, Text, ThemeModeContext } from '@/styles';
 import { logger } from '@/debugging/logger';
 import { SupaSessionContext } from '@/lib/supaSession';
 
-const HomeScreen: React.FC<{}> = ({ }) => {
-  const session = useContext(SupaSessionContext)
-  logger.debug(JSON.stringify(session))
+const HomeScreen: React.FC<{}> = ({}) => {
+  const session = useContext(SupaSessionContext);
+  const { theme, setTheme } = useContext(ThemeModeContext);
+
   return (
     <Box
       backgroundColor="background"
@@ -13,7 +14,16 @@ const HomeScreen: React.FC<{}> = ({ }) => {
       paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
-        <Text>test</Text>
+      <Box paddingHorizontal="xs">
+        <Button
+          title="Sign in"
+          type="outline"
+          radius="xl"
+          onPress={() => {
+            setTheme(theme === 'light' ? 'dark' : 'light');
+          }}
+        />
+      </Box>
     </Box>
   );
 };

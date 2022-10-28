@@ -4,27 +4,25 @@ import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import LoginScreen from './src/screens/Login';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/Home';
 import monitorNetwork from '@/debugging/network';
 import { SHOW_NETWORK } from '@env';
 import { AppRegistry } from 'react-native';
 import { supabase } from '@/lib/supabase';
 import { SupaSessionContext } from '@/lib/supaSession';
 import { Session } from '@supabase/supabase-js';
+import Navigation from '@/navigation';
+import { StatusBar } from 'expo-status-bar';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 0 } },
 });
-const Stack = createNativeStackNavigator();
 
 SplashScreen.preventAutoHideAsync();
 
 
 export default function App() {
-  const [theme, setTheme] = useState<string>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [session, setSession] = useState<Session | null>(null);
 
   useEffect(() => {
@@ -42,7 +40,7 @@ export default function App() {
       try {
         const mode = AsyncStorage.getItem('theme');
         const data = await Promise.all([mode])
-        setTheme(data[0] || 'dark');
+        setTheme(data[0] === 'light' ? 'light' : 'dark');
       } catch (e) {
         console.warn(e);
       } finally {
@@ -58,14 +56,12 @@ export default function App() {
     <ThemeProvider theme={theme === 'light' ? Theme : DarkTheme}>
       <QueryClientProvider client={queryClient}>
         <SupaSessionContext.Provider value={session}>
-        <ThemeModeContext.Provider value={{theme, setTheme}}>
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
-              <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
-              <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </ThemeModeContext.Provider>
+          <ThemeModeContext.Provider value={{ theme, setTheme }}>
+            <StatusBar animated style={theme === 'light' ? 'dark' : 'light'} />
+            <NavigationContainer>
+              <Navigation />
+            </NavigationContainer>
+          </ThemeModeContext.Provider>
         </SupaSessionContext.Provider>
       </QueryClientProvider>
     </ThemeProvider>

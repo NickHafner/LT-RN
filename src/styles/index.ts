@@ -8,7 +8,10 @@ export { default as Theme } from './theme';
 export { default as DarkTheme } from './darkTheme';
 import { createContext } from 'react';
 
-export const ThemeModeContext = createContext<{ theme: string; setTheme: (mode: string) => void }>({
+export const ThemeModeContext = createContext<{
+  theme: string;
+  setTheme: (mode: 'dark' | 'light') => void;
+}>({
   theme: 'dark',
-  setTheme: (mode: string) => {},
+  setTheme: (mode: 'dark' | 'light') => {},
 });

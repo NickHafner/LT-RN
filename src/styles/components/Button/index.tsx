@@ -18,6 +18,7 @@ import Box from '../Box';
 import Text from '../Text';
 import { renderNode, StringOmit } from '@/utils';
 import { TextProps } from '@shopify/restyle';
+import { logger } from '@/debugging/logger';
 
 const defaultLoadingProps = (
   type: 'solid' | 'clear' | 'outline',
@@ -114,6 +115,7 @@ export const Button: CommonBtn<ButtonProps> = ({
   ...rest
 }) => {
   const theme = useTheme();
+  logger.debug('render')
   const handleOnPress = useCallback(
     (evt: any) => {
       if (!loading && !disabled) {
@@ -272,4 +274,4 @@ const styles = StyleSheet.create({
 
 Button.displayName = 'Button';
 
-export default Button;
+export default React.memo(Button);
