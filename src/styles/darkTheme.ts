@@ -13,8 +13,6 @@ const darkTheme: Theme = {
     iconColor: palette.telegram300,
     inputBackground: '#0d1117',
     brandPrimary: palette.telegram300,
-    border: '#30363d',
-    btnPrimary: palette.telegram300,
   },
 };
 

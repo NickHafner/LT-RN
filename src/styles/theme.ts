@@ -13,12 +13,11 @@ const theme = createTheme({
     highlightPrimary: palette.yellow70,
     buttonBackground: palette.blue70,
     errorPrimary: palette.red70,
-    btnPrimary: palette.brandPrimary,
+    btnPrimary: palette.telegram700,
     disabled: palette.grey70,
     inputBackground: palette.blueGrey100,
-    brandPrimary: palette.brandPrimary,
-    borderFocus: palette.brandPrimary,
-    border: '#30363d',
+    brandPrimary: palette.telegram700,
+    borderFocus: palette.telegram400,
 
     cardBackground: palette.white100,
     secondaryCardText: palette.white90,
@@ -53,6 +52,11 @@ const theme = createTheme({
     },
     body: {
       fontSize: 16,
+      lineHeight: 24,
+      color: 'body',
+    },
+    button: {
+      fontSize: 18,
       lineHeight: 24,
       color: 'body',
     },

@@ -42,7 +42,7 @@ export default function App() {
       try {
         const mode = AsyncStorage.getItem('theme');
         const data = await Promise.all([mode])
-        setThemeMode(data[0] || 'light');
+        setThemeMode(data[0] || 'dark');
       } catch (e) {
         console.warn(e);
       } finally {
@@ -55,7 +55,7 @@ export default function App() {
   if (IS_DEV) monitorNetwork(true, true);
 
   return (
-    <ThemeProvider theme={DarkTheme}>
+    <ThemeProvider theme={themeMode === 'light' ? Theme : DarkTheme}>
       <QueryClientProvider client={queryClient}>
         <SupaSessionContext.Provider value={session}>
           <NavigationContainer>

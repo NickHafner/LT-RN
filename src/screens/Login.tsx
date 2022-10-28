@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Text } from '@/styles';
+import { Box, Input, Button, Text } from '@/styles';
 import { supabase } from '@/lib/supabase';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
@@ -24,11 +24,12 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
     <Box
       backgroundColor="background"
       flex={1}
-      paddingVertical="xl"
+      minHeight="100%"
+      // paddingVertical="xl"
       justifyContent="center"
       paddingHorizontal="xs">
-      <Box marginBottom="s" padding="s" alignItems="center">
-        <Text fontWeight="700" fontSize={20}>
+      <Box paddingBottom="s" alignItems="center">
+        <Text fontWeight="700" fontSize={24}>
           Minimalist Lifts
         </Text>
       </Box>
@@ -36,7 +37,7 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
         borderRadius={10}
         paddingVertical="s"
         backgroundColor="paper"
-        borderColor="border"
+        borderColor="paper"
         borderWidth={2}
         shadowColor="backgroundSubdued"
         shadowOffset={{
@@ -67,11 +68,14 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
           <Button
             title="Sign in"
             loading={loading}
+            type="outline"
+            radius="xl"
             onPress={() => {
               setLoading(true);
               setTimeout(() => {
-                signInWithEmail(email, password);
-              }, 100);
+                setLoading(false);
+                // signInWithEmail(email, password);
+              }, 2000);
             }}
           />
         </Box>

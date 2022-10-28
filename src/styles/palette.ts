@@ -110,8 +110,6 @@ export const palette = {
   blueGrey90: '#3C4047',
   blueGrey100: '#242529',
 
-  brandPrimary: '#7289da',
-
   telegram50: '#E3F2F9',
   telegram100: '#C5E4F3',
   telegram200: '#A2D4EC',
