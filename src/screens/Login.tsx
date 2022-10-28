@@ -1,43 +1,29 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Input, Button, Text } from '@/styles';
-import { supabase } from '@/lib/supabase';
-import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
+import { signInWithEmail } from '@/API';
 
-  const signInWithEmail = async function (email: string, password: string): Promise<boolean> {
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    });
-
-    return !!error;
-  }
 const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navigation }) => {
   const [email, setEmail] = useState('nickrhafner@gmail.com');
   const [password, setPassword] = useState('$@ndb0x!');
   const [loading, setLoading] = useState(false);
-  const handleLogin = useCallback(() => {
+  const handleLogin = useCallback(async () => {
     setLoading(true);
-    // const success = signInWithEmail(email, password);
-    // if (success) {
-      setTimeout(() => setLoading(false), 750); // timeout to ensure loading spinner does not disappear until after nav animation
-    // navigation.navigate('Home');
-    // }
+    const success = await signInWithEmail(email, password);
+    if (success) navigation.navigate('Home');
+
+    setTimeout(() => setLoading(false), 250); // timeout to ensure loading spinner does not disappear until after nav animation
   }, []);
+
   return (
-    <Box
-      backgroundColor="background"
-      flex={1}
-      minHeight="100%"
-      justifyContent="center"
-      paddingHorizontal="xs">
+    <Box backgroundColor="background" flex={1} justifyContent="center" paddingHorizontal="xs">
       <Box paddingBottom="s" alignItems="center">
         <Text fontWeight="700" fontSize={24}>
           Minimalist Lifts
         </Text>
       </Box>
       <Box
-        borderRadius={10}
+        borderRadius={20}
         paddingVertical="s"
         backgroundColor="paper"
         borderColor="paper"
@@ -45,7 +31,7 @@ const LoginScreen: React.FC<{ navigation: NavigationProp<any, any> }> = ({ navig
         shadowColor="backgroundSubdued"
         shadowOffset={{
           width: 0,
-          height: 2,
+          height: 4,
         }}
         shadowOpacity={0.23}
         shadowRadius={2.23}
